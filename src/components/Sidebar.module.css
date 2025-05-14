@@ -1,0 +1,54 @@
+/* Sidebar.module.css */
+
+/* Sidebar.module.css */
+
+.aside {
+  position: sticky;    /* stick it to the viewport */
+  top: 0;              
+  width: 15rem;        
+  /* remove any height or min-height */
+  border-right: 1px solid #e0e0e0;
+  background-color: #fff;
+  padding: 1.5rem 1rem;
+  z-index: 10;         /* sit above the video content */
+}
+
+.aside {
+  width: 15rem;
+  height: 100vh;
+  border-right: 1px solid #e0e0e0;
+  background-color: #ffffff;
+  padding: 1.5rem 1rem;
+}
+
+.logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 1.5rem;  /* space between logo and links */
+  cursor: pointer;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+.link {
+  display: block;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #111111;
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.link:hover {
+  color: #0050ff;
+}
+
+.active {
+  color: #0050ff;
+}
+

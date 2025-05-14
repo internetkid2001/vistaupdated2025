@@ -1,0 +1,68 @@
+/* page.module.css */
+
+/* 1. Full-page, white background and vertical centering */
+.container {
+  background-color: #ffffff;
+  padding: 3rem 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 2. Each video block */
+.videoBlock {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  margin-bottom: 4rem;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+
+/* 3. Wrapper to position the title */
+.videoWrapper {
+  position: relative;
+}
+
+/* 4. The video itself */
+.video {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* 5. Hover-title overlay */
+.videoTitle {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #0050ff;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.videoWrapper:hover .videoTitle {
+  opacity: 1;
+}
+
+/* 6. Mobile tweaks */
+@media (max-width: 640px) {
+  .container {
+    padding: 2rem 0.5rem;
+  }
+  .videoBlock {
+    margin-bottom: 2rem;
+  }
+  .videoTitle {
+    font-size: 1.2rem;
+    bottom: 5%;
+    left: 3%;
+    opacity: 1; /* always visible on mobile */
+  }
+}
