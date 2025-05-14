@@ -1,12 +1,14 @@
-'use client'
+'use client';
 
-import styles from './page.module.css'
+export const dynamic = 'error';
+
+import styles from './page.module.css';
 
 interface VideoEntry {
-  title: string
-  artist: string
-  file: string
-  url: string
+  title: string;
+  artist: string;
+  file: string;
+  url: string;
 }
 
 const videoData: VideoEntry[] = [
@@ -92,7 +94,7 @@ const videoData: VideoEntry[] = [
     title: 'HOLD',
     artist: 'CALEB PETERS',
     file: 'HOLD FINAL 1.mp4',
-    url: '' /* no external link */
+    url: ''
   },
   {
     title: 'STRAWBERRY BLONDE',
@@ -100,17 +102,14 @@ const videoData: VideoEntry[] = [
     file: 'Final v2 (Color).mp4',
     url: 'https://youtu.be/uGTkyQSYziQ'
   }
-]
+];
 
 export default function MadeByVistaPage() {
   return (
     <div className={styles.container}>
       {videoData.map(({ title, artist, file, url }, idx) => {
-        const src = `https://victor-videos.b-cdn.net/${encodeURIComponent(
-          file
-        )}`
-
-        const label = artist ? `${title} – ${artist}` : title
+        const src = `https://victor-videos.b-cdn.net/${encodeURIComponent(file)}`;
+        const label = artist ? `${title} – ${artist}` : title;
 
         return (
           <div key={idx} className={styles.videoBlock}>
@@ -128,8 +127,8 @@ export default function MadeByVistaPage() {
               </div>
             </a>
           </div>
-        )
+        );
       })}
     </div>
-  )
+  );
 }

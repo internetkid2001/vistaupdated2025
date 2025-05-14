@@ -1,5 +1,5 @@
-// src/app/store/page.tsx
-'use client'
+'use client';
+export const dynamic = 'error';
 
 import styles from '../ComingSoon.module.css'
 

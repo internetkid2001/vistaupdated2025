@@ -1,13 +1,13 @@
-// src/app/store/page.tsx
-'use client'
+'use client';
 
-import styles from '../ComingSoon.module.css'
+export const dynamic = 'error';
 
-export default function StorePage() {
+import styles from '../ComingSoon.module.css';
+
+export default function Page() {
   return (
-    <div className={styles.container}>
-      <h1 className={styles.heading}></h1>
-      <p className={styles.message}>This page is coming soon.</p>
+    <div className={styles.wrapper}>
+      <h1>Coming Soon</h1>
     </div>
-  )
+  );
 }

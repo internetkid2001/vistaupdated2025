@@ -1,18 +1,16 @@
 /** @type {import('next').NextConfig} */
-const dev = process.env.NODE_ENV !== 'production'
+const dev = process.env.NODE_ENV !== 'production';
 
-/** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export', // ✅ REQUIRED for static export
+
   async headers() {
-    // Skip CSP in development so eval/hydration and HMR work
     if (dev) {
-      return []
+      return [];
     }
 
-    // Only in production, enforce a strict-but-functional CSP
     return [
       {
-        // apply these headers to all routes
         source: '/:path*',
         headers: [
           {
@@ -29,8 +27,8 @@ const nextConfig = {
           }
         ]
       }
-    ]
+    ];
   }
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
