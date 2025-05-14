@@ -1,9 +1,17 @@
+// src/app/layout.tsx
+
 import './globals.css'
+import Navbar from '@/components/Navbar'
 import Sidebar from '@/components/Sidebar'
 
 export const metadata = {
-  title: 'Vista',
+  title: 'VOLUNTEERS IN SERVICE TO ART',
   description: 'A creative platform by Vista',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon-32x32.png',
+    apple: '/apple-touch-icon.png',
+  },
 }
 
 export default function RootLayout({
@@ -14,6 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="h-screen flex overflow-hidden">
+        {/* 0. Mobile-only sliding nav */}
+        <Navbar />
+
         {/* 1. Sidebar fixed width on the left */}
         <Sidebar />
 

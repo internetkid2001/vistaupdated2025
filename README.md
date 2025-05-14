@@ -1,16 +1,21 @@
+Here's your updated **README.md** with the mobile sidebar fix included and the full file paths you listed:
+
+---
+
+```markdown
 # Vista Updated Website
 
-A Next.js-based portfolio and media showcase site with a fixed sidebar, CSS-Module styling, and video embeds.
+A Next.js–based portfolio and media showcase site with CSS-Module styling and video embeds.
 
 ---
 
 ## 📦 Tech Stack
 
-* **Framework:** Next.js 15 (App Router + TypeScript, `output: 'export'`)
-* **Styling:** Tailwind CSS (global resets) + CSS Modules (components & pages)
-* **Video Hosting:** YouTube embeds & CDN-hosted MP4s
-* **Routing:** Next.js `<Link>` for internal, standard `<a>` for external
-* **Icons & Fonts:** System-sans UI stack (SF Pro on macOS, Segoe UI on Windows)
+* **Framework:** Next.js 15 (App Router + TypeScript, `output: 'export'`)  
+* **Styling:** Tailwind CSS (global resets) + CSS Modules (components & pages)  
+* **Video Hosting:** YouTube embeds & CDN-hosted MP4s  
+* **Routing:** Next.js `<Link>` for internal, standard `<a>` for external  
+* **Icons & Fonts:** System-sans UI stack (SF Pro on macOS, Segoe UI on Windows)  
 * **Deployment:** Firebase Hosting + GitHub Actions (auto-deploy from `main`)
 
 ---
@@ -19,39 +24,57 @@ A Next.js-based portfolio and media showcase site with a fixed sidebar, CSS-Modu
 
 ```
 
-.
-├── next.config.js             # CSP headers + static export
-├── package.json
-├── firebase.json              # Firebase Hosting config
-├── .firebaserc                # Firebase project alias
-├── .github/
-│   └── workflows/
-│       └── firebase-hosting-merge.yml  # GitHub Actions deploy workflow
-├── public/
-│   └── favicon.ico
-└── src/
-├── app/
-│   ├── globals.css        # Tailwind + resets
-│   ├── layout.tsx         # root layout
-│   ├── page.tsx           # hero landing page
-│   ├── page.module.css
-│   ├── store/
-│   │   └── page.tsx       # external link
-│   ├── archive/
-│   │   └── page.tsx       # external link
-│   ├── made-by-vista/
-│   │   ├── page.tsx       # video grid
-│   │   └── page.module.css
-│   ├── contact/
-│   │   └── page.tsx       # coming soon
-│   ├── sms-newsletter/
-│   │   └── page.tsx       # coming soon
-│   └── faq-terms/
-│       ├── page.tsx       # FAQ + Policy
-│       └── page.module.css
-└── components/
-├── Sidebar.tsx        # fixed sidebar nav
-└── Sidebar.module.css
+.firebase
+.github
+.next
+node\_modules
+out
+public
+public/android-chrome-192x192.png
+public/android-chrome-512x512.png
+public/apple-touch-icon.png
+public/favicon-16x16.png
+public/favicon-32x32.png
+public/favicon.ico
+public/file.svg
+public/globe.svg
+public/next.svg
+public/site.webmanifest
+public/vercel.svg
+public/window\.svg
+src
+src/app
+src/app/archive
+src/app/contact
+src/app/faq-terms
+src/app/made-by-vista
+src/app/sms-newsletter
+src/app/sms-newsletter/page.tsx
+src/app/store
+src/app/ComingSoon.module.css
+src/app/globals.css
+src/app/layout.tsx
+src/app/page.module.css
+src/app/page.tsx
+src/components
+src/components/Navbar.module.css
+src/components/Navbar.tsx
+src/components/Sidebar.module.css
+src/components/Sidebar.tsx
+src/middleware.ts
+.firebaserc
+.gitignore
+eslint.config.mjs
+favicon.ico
+firebase.json
+next-env.d.ts
+next.config.js
+next.config.ts
+package-lock.json
+package.json
+postcss.config.mjs
+README.md
+tsconfig.json
 
 ````
 
@@ -73,7 +96,7 @@ A Next.js-based portfolio and media showcase site with a fixed sidebar, CSS-Modu
    npm run dev
    ```
 
-   * `http://localhost:3000/`
+   *Visit `http://localhost:3000/`*
 
 3. **Static build & Firebase deploy**
 
@@ -88,7 +111,7 @@ A Next.js-based portfolio and media showcase site with a fixed sidebar, CSS-Modu
 
 * Initialized with `firebase init`
 
-* Public directory: `out`
+* **Public directory:** `out`
 
 * Static export using Next.js 15
 
@@ -119,6 +142,7 @@ A Next.js-based portfolio and media showcase site with a fixed sidebar, CSS-Modu
    * FAQ & Terms
 6. **Firebase Hosting configured** to deploy `/out` folder
 7. **GitHub Actions integrated** for automatic deploy on push to `main`
+8. **Sidebar hidden on mobile** via media query in `Sidebar.module.css`
 
 ---
 
@@ -133,7 +157,7 @@ font-family:
   "Noto Sans", sans-serif;
 ```
 
-Tailwind handles global resets, layout primitives. All visual styling scoped via `.module.css`.
+Tailwind handles global resets and layout primitives; all custom styles scoped via CSS Modules.
 
 ---
 
@@ -141,7 +165,7 @@ Tailwind handles global resets, layout primitives. All visual styling scoped via
 
 After pushing to `main`:
 
-1. GitHub Action checks out your code
+1. GitHub Action checks out code
 2. Installs dependencies
 3. Runs `npm run build`
 4. Deploys `/out` to Firebase Hosting
@@ -152,10 +176,7 @@ No manual deploy needed 🎉
 
 ## 📌 Next Steps
 
-* Hook up Firebase Firestore for:
-
-  * Contact form submissions
-  * SMS/newsletter capture
+* Hook up Firestore for contact-form submissions & SMS capture
 * Add real store checkout (Stripe or Vercel Commerce)
 * Deploy photo mosaics & gallery albums
 * Custom domain via Firebase Console
