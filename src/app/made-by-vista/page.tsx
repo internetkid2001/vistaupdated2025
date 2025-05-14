@@ -67,12 +67,6 @@ const videoData: VideoEntry[] = [
     url: 'https://youtu.be/QL0rK0n5D4g'
   },
   {
-    title: 'COWBOY BEBOP EPISODE 26 MINUTE 19:06',
-    artist: 'CHASE USA',
-    file: 'CHASE PLATO - BANG (COWBOY BEBOP EPISODE 26 MINUTE 19-06) 10-06-23.mp4',
-    url: 'https://youtu.be/nbGJqNtT9Kg'
-  },
-  {
     title: 'SET YOU FREE',
     artist: 'CHASE USA',
     file: 'SET YOU FREE FINAL  10-20-22.mp4',
@@ -89,18 +83,6 @@ const videoData: VideoEntry[] = [
     artist: 'CHASE USA',
     file: 'ICE CREAM MAN FINAL FINAL.mp4',
     url: 'https://youtu.be/XsWXgK1okwE'
-  },
-  {
-    title: 'HOLD',
-    artist: 'CALEB PETERS',
-    file: 'HOLD FINAL 1.mp4',
-    url: ''
-  },
-  {
-    title: 'STRAWBERRY BLONDE',
-    artist: 'JACOB SIGMAN',
-    file: 'Final v2 (Color).mp4',
-    url: 'https://youtu.be/uGTkyQSYziQ'
   }
 ];
 
