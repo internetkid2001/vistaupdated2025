@@ -6,59 +6,66 @@ A Next.js-based portfolio and media showcase site with a fixed sidebar, CSS-Modu
 
 ## 📦 Tech Stack
 
-* **Framework:** Next.js 14 (App Router + TypeScript)
+* **Framework:** Next.js 15 (App Router + TypeScript, `output: 'export'`)
 * **Styling:** Tailwind CSS (global resets) + CSS Modules (components & pages)
 * **Video Hosting:** YouTube embeds & CDN-hosted MP4s
 * **Routing:** Next.js `<Link>` for internal, standard `<a>` for external
 * **Icons & Fonts:** System-sans UI stack (SF Pro on macOS, Segoe UI on Windows)
-* **Deployment:** Vercel / static export friendly
+* **Deployment:** Firebase Hosting + GitHub Actions (auto-deploy from `main`)
 
 ---
 
 ## 🔍 File Structure
 
 ```
+
 .
-├── next.config.js             # CSP headers (dev vs. prod)
+├── next.config.js             # CSP headers + static export
 ├── package.json
+├── firebase.json              # Firebase Hosting config
+├── .firebaserc                # Firebase project alias
+├── .github/
+│   └── workflows/
+│       └── firebase-hosting-merge.yml  # GitHub Actions deploy workflow
 ├── public/
 │   └── favicon.ico
 └── src/
-    ├── app/
-    │   ├── globals.css        # global resets + Tailwind imports
-    │   ├── layout.tsx         # root layout (flex sidebar + main)
-    │   ├── page.tsx           # home page (video hero)
-    │   ├── page.module.css    # home CSS‐module (16∶9 aspect + centering)
-    │   ├── store/
-    │   │   └── page.tsx       # external-link stub → vist4.net/store
-    │   ├── archive/
-    │   │   └── page.tsx       # external-link stub → Instagram
-    │   ├── made-by-vista/
-    │   │   ├── page.tsx       # video grid with hover titles
-    │   │   └── page.module.css
-    │   ├── contact/
-    │   │   └── page.tsx       # coming soon via ComingSoon.module.css
-    │   ├── sms-newsletter/
-    │   │   └── page.tsx       # coming soon
-    │   └── faq-terms/
-    │       ├── page.tsx       # FAQ & Terms page
-    │       └── page.module.css
-    └── components/
-        ├── Sidebar.tsx        # fixed sidebar + home-GIF + nav links
-        └── Sidebar.module.css
-```
+├── app/
+│   ├── globals.css        # Tailwind + resets
+│   ├── layout.tsx         # root layout
+│   ├── page.tsx           # hero landing page
+│   ├── page.module.css
+│   ├── store/
+│   │   └── page.tsx       # external link
+│   ├── archive/
+│   │   └── page.tsx       # external link
+│   ├── made-by-vista/
+│   │   ├── page.tsx       # video grid
+│   │   └── page.module.css
+│   ├── contact/
+│   │   └── page.tsx       # coming soon
+│   ├── sms-newsletter/
+│   │   └── page.tsx       # coming soon
+│   └── faq-terms/
+│       ├── page.tsx       # FAQ + Policy
+│       └── page.module.css
+└── components/
+├── Sidebar.tsx        # fixed sidebar nav
+└── Sidebar.module.css
+
+````
 
 ---
 
-## 🚀 Setup & Run
+## 🚀 Setup & Run (Local Dev)
 
 1. **Clone & install**
 
    ```bash
-   git clone <repo-url>
+   git clone https://github.com/internetkid2001/vistaupdated2025.git
    cd vistaupdated2025
    npm install
-   ```
+````
 
 2. **Dev server**
 
@@ -66,78 +73,93 @@ A Next.js-based portfolio and media showcase site with a fixed sidebar, CSS-Modu
    npm run dev
    ```
 
-   * Home: `http://localhost:3000/`
-   * Store: external `vist4.net/store`
-   * Archive: Instagram
-   * Made by Vista: grid of CDN & YouTube videos
-   * FAQ & Terms: white-background policy page
+   * `http://localhost:3000/`
 
-3. **Build & export**
+3. **Static build & Firebase deploy**
 
    ```bash
-   npm run build
-   npm run start     # or `npm run export` for static
+   npm run build      # outputs to /out via output: 'export'
+   npx firebase deploy
    ```
 
 ---
 
-## 🔧 What We Did
+## ⚙️ Firebase Hosting Setup
 
-1. **Initialized Next.js** with TypeScript, App Router, ESLint, Tailwind CSS.
-2. **Configured CSP** in `next.config.js` (loosened in dev, strict in prod) to allow HMR, inline scripts, video & iframe embeds.
-3. **Switched to flex layout** in `layout.tsx`:
+* Initialized with `firebase init`
 
-   * `<body class="h-screen flex overflow-hidden">`
-   * `<Sidebar/>` + `<main class="flex-1 bg-white overflow-auto p-6">`
-4. **Built `Sidebar`** as a CSS-Module:
+* Public directory: `out`
 
-   * Sticky GIF home-link on top
-   * Internal (`<Link>`) vs. external (`<a>`) nav items
-   * Wider 15 rem panel, custom fonts, hover & active styles
-5. **Hero video page** (`page.tsx`):
+* Static export using Next.js 15
 
-   * 16∶9 aspect ratio with `aspect-ratio` CSS
-   * Supports YouTube-nocookie or direct MP4
-   * Autoplay muted loop, no controls
-6. **Stub pages** for non-video routes:
+* Custom headers via `next.config.js` (`Content-Security-Policy`)
 
-   * Shared `ComingSoon.module.css` for consistent styling
-   * Titles & messages center-aligned on white background
-7. **Made by Vista page**:
+* GitHub Action created with:
 
-   * Imported full video list
-   * Grid of video previews (autoPlay muted loop)
-   * Hover overlays, responsive tweaks
-8. **FAQ & Terms**:
+  ```bash
+  firebase init hosting:github
+  ```
 
-   * CSS-Module for max-width, left-aligned in main gutter
-   * Semantic sections: FAQ Q\&A, Return Policy, Privacy Policy
-   * White background to prevent black gutter
+* Auto-deploy on `main` pushes via `.github/workflows/firebase-hosting-merge.yml`
+
+---
+
+## ✅ What We Did
+
+1. **Next.js App Router project initialized**
+2. **Tailwind CSS** used for global resets, CSS Modules for scoped styles
+3. **Firebase CLI installed + initialized**
+4. Set `output: 'export'` in `next.config.js` for static HTML export
+5. Created routes and pages for:
+
+   * Landing
+   * Video showcase
+   * Store/archive stubs
+   * Coming soon (Contact + Newsletter)
+   * FAQ & Terms
+6. **Firebase Hosting configured** to deploy `/out` folder
+7. **GitHub Actions integrated** for automatic deploy on push to `main`
 
 ---
 
 ## 🎨 Fonts & Styling
 
-* **Font-stack**:
+```css
+font-family:
+  ui-sans-serif, system-ui,
+  -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Roboto,
+  "Helvetica Neue", Arial,
+  "Noto Sans", sans-serif;
+```
 
-  ```css
-  font-family:
-    ui-sans-serif, system-ui,
-    -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto,
-    "Helvetica Neue", Arial,
-    "Noto Sans", sans-serif;
-  ```
-* **Tailwind** used only for global resets; all component/page styles live in CSS Modules for clarity.
-
----
-
-## 🤝 Next Steps
-
-* Hook up **Firebase** for Contact & SMS Newsletter form handling.
-* Fill out **Store** page with Vercel Commerce or Stripe checkout.
-* Add **photo galleries**, scrollable mosaics, and additional interactive components.
+Tailwind handles global resets, layout primitives. All visual styling scoped via `.module.css`.
 
 ---
 
-*Built by internetkid2001 using Jarvis-style precision*
+## 🔄 Deployment Workflow
+
+After pushing to `main`:
+
+1. GitHub Action checks out your code
+2. Installs dependencies
+3. Runs `npm run build`
+4. Deploys `/out` to Firebase Hosting
+
+No manual deploy needed 🎉
+
+---
+
+## 📌 Next Steps
+
+* Hook up Firebase Firestore for:
+
+  * Contact form submissions
+  * SMS/newsletter capture
+* Add real store checkout (Stripe or Vercel Commerce)
+* Deploy photo mosaics & gallery albums
+* Custom domain via Firebase Console
+
+---
+
+**Built by internetkid2001**
