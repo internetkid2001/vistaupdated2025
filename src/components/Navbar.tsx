@@ -7,12 +7,11 @@ import styles from './Navbar.module.css'
 
 const navLinks = [
   { href: 'https://www.vist4.net/store',         label: 'Store',            external: true },
-  { href: 'https://www.instagram.com/vista_usa/', label: 'Archive',          external: true },
-  { href: '/made-by-vista',                      label: 'Made by Vista'                 },
-  { href: 'https://www.vist4.net/contact',       label: 'Contact',          external: true },
-  { href: '/sms-newsletter',                     label: 'SMS & Newsletter'              },
-  { href: '/faq-terms',                          label: 'FAQ & Terms'                   },
-  
+  { href: 'https://www.instagram.com/vista_usa/', label: 'Archive',         external: true },
+  { href: '/made-by-vista',                      label: 'Made by Vista' },
+  { href: '/contact',                            label: 'Contact' }, // ✅ Fixed: internal link
+  { href: '/sms-newsletter',                     label: 'SMS & Newsletter' },
+  { href: '/faq-terms',                          label: 'FAQ & Terms' },
 ]
 
 export default function Navbar() {

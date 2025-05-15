@@ -1,13 +1,9 @@
-'use client';
+import NewsletterForm from '@/components/NewsletterForm'
 
-export const dynamic = 'error';
-
-import styles from '../ComingSoon.module.css';
-
-export default function Page() {
+export default function SMSNewsletterPage() {
   return (
-    <div className={styles.wrapper}>
-      <h1>Coming Soon</h1>
-    </div>
-  );
+    <main className="flex flex-col items-center justify-center min-h-screen px-4">
+      <NewsletterForm />
+    </main>
+  )
 }

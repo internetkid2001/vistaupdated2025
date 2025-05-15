@@ -15,14 +15,10 @@ const navLinks = [
     label: 'Archive',
     external: true,
   },
-  { href: '/made-by-vista',  label: 'Made by Vista'    },
-  {
-    href: 'https://www.vist4.net/contact',
-    label: 'Contact',
-    external: true,
-  },
+  { href: '/made-by-vista', label: 'Made by Vista' },
+  { href: '/contact',       label: 'Contact' }, // ✅ Now internal
   { href: '/sms-newsletter', label: 'Newsletter' },
-  { href: '/faq-terms',      label: 'FAQ & Terms'      },
+  { href: '/faq-terms',      label: 'FAQ & Terms' },
 ]
 
 export default function Sidebar() {

@@ -1,8 +1,3 @@
-Here's your updated **README.md** with the mobile sidebar fix included and the full file paths you listed:
-
----
-
-```markdown
 # Vista Updated Website
 
 A Next.js–based portfolio and media showcase site with CSS-Module styling and video embeds.
@@ -11,11 +6,11 @@ A Next.js–based portfolio and media showcase site with CSS-Module styling and 
 
 ## 📦 Tech Stack
 
-* **Framework:** Next.js 15 (App Router + TypeScript, `output: 'export'`)  
-* **Styling:** Tailwind CSS (global resets) + CSS Modules (components & pages)  
-* **Video Hosting:** YouTube embeds & CDN-hosted MP4s  
-* **Routing:** Next.js `<Link>` for internal, standard `<a>` for external  
-* **Icons & Fonts:** System-sans UI stack (SF Pro on macOS, Segoe UI on Windows)  
+* **Framework:** Next.js 15 (App Router + TypeScript, `output: 'export'`)
+* **Styling:** Tailwind CSS (global resets) + CSS Modules (components & pages)
+* **Video Hosting:** YouTube embeds & CDN-hosted MP4s
+* **Routing:** Next.js `<Link>` for internal, standard `<a>` for external
+* **Icons & Fonts:** System-sans UI stack (SF Pro on macOS, Segoe UI on Windows)
 * **Deployment:** Firebase Hosting + GitHub Actions (auto-deploy from `main`)
 
 ---
@@ -23,11 +18,10 @@ A Next.js–based portfolio and media showcase site with CSS-Module styling and 
 ## 🔍 File Structure
 
 ```
-
 .firebase
 .github
 .next
-node\_modules
+node_modules
 out
 public
 public/android-chrome-192x192.png
@@ -41,7 +35,7 @@ public/globe.svg
 public/next.svg
 public/site.webmanifest
 public/vercel.svg
-public/window\.svg
+public/window.svg
 src
 src/app
 src/app/archive
@@ -61,6 +55,7 @@ src/components/Navbar.module.css
 src/components/Navbar.tsx
 src/components/Sidebar.module.css
 src/components/Sidebar.tsx
+src/components/ContactForm.tsx
 src/middleware.ts
 .firebaserc
 .gitignore
@@ -75,8 +70,7 @@ package.json
 postcss.config.mjs
 README.md
 tsconfig.json
-
-````
+```
 
 ---
 
@@ -88,7 +82,7 @@ tsconfig.json
    git clone https://github.com/internetkid2001/vistaupdated2025.git
    cd vistaupdated2025
    npm install
-````
+   ```
 
 2. **Dev server**
 
@@ -138,11 +132,12 @@ tsconfig.json
    * Landing
    * Video showcase
    * Store/archive stubs
-   * Coming soon (Contact + Newsletter)
+   * Contact form using Formspree (styled to match reference)
+   * Newsletter signup (Mailchimp embed with GIF)
    * FAQ & Terms
-6. **Firebase Hosting configured** to deploy `/out` folder
-7. **GitHub Actions integrated** for automatic deploy on push to `main`
-8. **Sidebar hidden on mobile** via media query in `Sidebar.module.css`
+6. **Sidebar hidden on mobile** via media query in `Sidebar.module.css`
+7. **Firebase Hosting configured** to deploy `/out` folder
+8. **GitHub Actions integrated** for automatic deploy on push to `main`
 
 ---
 

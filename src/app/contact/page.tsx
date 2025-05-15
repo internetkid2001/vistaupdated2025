@@ -1,13 +1,10 @@
-'use client';
+import ContactForm from '@/components/ContactForm'
 
-export const dynamic = 'error';
-
-import styles from '../ComingSoon.module.css';
-
-export default function Page() {
+export default function ContactPage() {
   return (
-    <div className={styles.wrapper}>
-      <h1>Coming Soon</h1>
-    </div>
-  );
+    <main className="min-h-screen px-4 py-8">
+      <h1 className="text-2xl font-bold mb-6 text-center">Contact</h1>
+      <ContactForm />
+    </main>
+  )
 }
