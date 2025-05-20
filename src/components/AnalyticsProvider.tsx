@@ -1,17 +1,19 @@
 'use client'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { useEffect } from 'react'
+import { useEffect }                 from 'react'
 
-const GA_ID = 'G-M3W46FQHF'  // or pull from NEXT_PUBLIC_MEASUREMENT_ID
+const GA_ID = 'G-M3W46FJQHF'
 
 export default function AnalyticsProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
   const search   = useSearchParams()
 
   useEffect(() => {
-    if (typeof window.gtag === 'function') {
+    // cast to any so TS won’t complain
+    const gtag = (window as any).gtag
+    if (typeof gtag === 'function') {
       const url = pathname + (search.toString() ? `?${search}` : '')
-      window.gtag('config', GA_ID, { page_path: url })
+      gtag('config', GA_ID, { page_path: url })
     }
   }, [pathname, search])
 
