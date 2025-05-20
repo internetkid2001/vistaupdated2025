@@ -3,6 +3,7 @@ import './globals.css'
 import Script from 'next/script'
 import Navbar from '@/components/Navbar'
 import Sidebar from '@/components/Sidebar'
+import AnalyticsProvider from '@/components/AnalyticsProvider'
 
 export const metadata = {
   title: 'VOLUNTEERS IN SERVICE TO ART',
@@ -20,12 +21,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {/* Load GA */}
+        {/* 1) Load the gtag library */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
           strategy="afterInteractive"
         />
-        {/* Init GA */}
+        {/* 2) Initialize it */}
         <Script id="gtag-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -43,9 +44,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Sidebar />
 
         {/* 2. Main content flexes, always white, scrollable */}
-        <main className="flex-1 bg-white overflow-auto p-6">
-          {children}
-        </main>
+        <AnalyticsProvider>
+          <main className="flex-1 bg-white overflow-auto p-6">
+            {children}
+          </main>
+        </AnalyticsProvider>
       </body>
     </html>
   )
