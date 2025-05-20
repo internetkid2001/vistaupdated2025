@@ -1,5 +1,7 @@
 // src/app/layout.tsx
+
 import './globals.css'
+import React, { Suspense } from 'react'
 import Script from 'next/script'
 import Navbar from '@/components/Navbar'
 import Sidebar from '@/components/Sidebar'
@@ -26,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
           strategy="afterInteractive"
         />
-        {/* 2) Initialize it */}
+        {/* 2) Initialize gtag */}
         <Script id="gtag-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -44,11 +46,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Sidebar />
 
         {/* 2. Main content flexes, always white, scrollable */}
-        <AnalyticsProvider>
-          <main className="flex-1 bg-white overflow-auto p-6">
-            {children}
-          </main>
-        </AnalyticsProvider>
+        <Suspense fallback={null}>
+          <AnalyticsProvider>
+            <main className="flex-1 bg-white overflow-auto p-6">
+              {children}
+            </main>
+          </AnalyticsProvider>
+        </Suspense>
       </body>
     </html>
   )
